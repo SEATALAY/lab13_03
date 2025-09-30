@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define variables
-        DOCKER_IMAGE       = 'tuchsanai/fastapi-webhook:latest'
+        DOCKER_IMAGE       = 'dechchart/fastapi-webhook:latest'
         DOCKER_CREDENTIALS = credentials('dockerhub')
     }
 
@@ -21,11 +21,9 @@ pipeline {
             steps {
                     // Build the Docker image
                     
-                    dir('./03_Jenkins/week13/03_Github_webhook') {
                        sh 'echo "Running in $(pwd)"'
                        sh 'echo start build the Docker image = $DOCKER_IMAGE'
                        sh 'docker build -t $DOCKER_IMAGE .'
-                    }   
                   
             }
         }
